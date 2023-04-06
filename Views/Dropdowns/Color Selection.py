@@ -24,7 +24,7 @@ class ColorDropdownView(discord.ui.View):
 
 
 
-@bot.command()
+@client.command()
 async def colour(ctx):
     view = ColorDropdownView()
     await ctx.send('Pick a colour:', view=view)
