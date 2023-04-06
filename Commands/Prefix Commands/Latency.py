@@ -26,5 +26,5 @@ async def latency(ctx):
     await ctx.send(f"Pong! I replied to your message in {round(bot.latency * 1000)}ms")
 
 
-"""When we run the file this logs into the bot, triggering the on_ready function"""
+"""After we run the file this logs into the bot, triggering the on_ready function"""
 bot.run('token')
