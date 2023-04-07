@@ -20,9 +20,9 @@ class Bot(commands.Bot):
 bot = Bot()
 
 # A command that sends a message to a specific channel
-@client.command()  # A decorator to register a command
+@bot.command()  # A decorator to register a command
 async def channel(ctx):
-    channel = client.get_channel(123456789)  # Replace with your channel ID
+    channel = bot.get_channel(123456789)  # Replace with your channel ID
     await channel.send("I'm working!")
     await ctx.send("Message sent to the specified channel.")
 
