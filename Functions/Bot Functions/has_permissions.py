@@ -19,15 +19,16 @@ class Bot(commands.Bot):
 # Creating an instance of our bot
 bot = Bot()
 
-@bot.command()
-@commands.has_permissions(manage_channels=True)
-async def permissions(ctx):
-    await ctx.send("You have manage_channels permissions")
-    
-@permissions.error
-async def channel_error(ctx, error):
-    if isinstance(error, commands.MissingPermissions):
-        await ctx.send("You do not have manage_channels permissions")
+@bot.command()  # Decorator to register a new command with the bot
+@commands.has_permissions(manage_channels=True)  # Decorator that restricts the usage of the command to users with the 'manage_channels' permission
+async def permissions(ctx):  # Command function to be executed when the command is called
+    await ctx.send("You have manage_channels permissions")  # Sending a message to the channel where the command was used
+
+@permissions.error  # Decorator to register an error handler for the 'permissions' command
+async def channel_error(ctx, error):  # Error handler function to be executed when an error occurs
+    if isinstance(error, commands.MissingPermissions):  # Checking if the error is a MissingPermissions error
+        await ctx.send("You do not have manage_channels permissions")  # Sending an error message to the channel where the command was used
+
 
 
 # Run the bot by providing the bot token
